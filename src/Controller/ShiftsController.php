@@ -53,18 +53,58 @@ class ShiftsController extends AppController
         $shift = $this->Shifts->newEntity();
         if ($this->request->is('post')) {
             $shift = $this->Shifts->patchEntity($shift, $this->request->getData());
-            if ($this->Shifts->save($shift)) {
-                $this->Flash->success(__('The shift has been saved.'));
+
+
+            $user_id = $_POST["user_id"];
+            $location_id = $_POST["location_id"];
+            $bill_id = $_POST["bill_id"];
+
+            $query1 = "INSERT INTO shifts(user_id, location_id, bill_id) VALUES ('$user_id', '$location_id', '$bill_id')";
+
+
+            $username = "root";
+            $password = "";
+            $database = "happypc";
+
+            $mysqli = new \mysqli("localhost", $username, $password, $database);
+
+            $mysqli->query("$query1");
+
+            /*
+            if ($this->Shifts->save($shifts)) {
+                $this->Flash->success(__('The computer has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The shift could not be saved. Please, try again.'));
+            $this->Flash->error(__('The computer could not be saved. Please, try again.'));
+            */
+
         }
         $users = $this->Shifts->Users->find('list', ['limit' => 200]);
         $locations = $this->Shifts->Locations->find('list', ['limit' => 200]);
         $bills = $this->Shifts->Bills->find('list', ['limit' => 200]);
         $this->set(compact('shift', 'users', 'locations', 'bills'));
     }
+
+
+    //todo self-made add data method
+    /*
+    public function addbridge()
+    {
+        $user_id = $_POST["user_id"];
+        $location_id = $_POST["location_id"];
+        $bill_id = $_POST["bill_id"];
+
+        $query1 = "INSERT INTO shifts(user_id, location_id, bill_id) VALUES ('$user_id', '$location_id', '$bill_id')";
+        if ($conn->query($query1) === TRUE) {
+            return $this->redirect(['action' => 'index']);
+        }else{
+
+        }
+
+    }
+
+    */
 
     /**
      * Edit method
