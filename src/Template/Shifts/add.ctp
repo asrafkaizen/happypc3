@@ -18,7 +18,7 @@
     </ul>
 </nav>
 <div class="shifts form large-9 medium-8 columns content">
-    <form method="post" accept-charset="utf-8" action="/happypc3/shifts/add">
+    <?= $this->Form->create($shift) ?>
     <fieldset>
         <legend><?= __('Add Shift') ?></legend>
         <?php
@@ -30,10 +30,6 @@
             echo $this->Flash->render();
 
         ?>
-
-        <input type="hidden" name="_csrfToken" autocomplete="off" 
-        value="d17ff490f947cce4f0a4e6119067d07f9d88e10bce15b50d8ff085d3ec15f3e54b93b1f3290ad48b578184c8d1871538644833c5c95ef57466d1fcee362bde3f">
-
         <h6>Enter User ID:</h6>
         <select name="user_id">
             <?php
