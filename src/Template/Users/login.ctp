@@ -1,6 +1,8 @@
-<h1>Login</h1>
+<br><br>
+<legend>Login</legend>
 <?= $this->Form->create() ?>
-<?= $this->Form->control('email') ?>
-<?= $this->Form->control('password') ?>
-<?= $this->Form->button('Login') ?>
+<?= $this->Form->input('email', array('class' => 'form-control')); ?>
+<?= $this->Form->input('password', array('class' => 'form-control')); ?>
+<br>
+<?= $this->Form->submit('Login', array('class' => 'btn btn-primary btn-lg')); ?>
 <?= $this->Form->end() ?>

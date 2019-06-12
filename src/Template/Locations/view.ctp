@@ -3,38 +3,27 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Location $location
  */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Location'), ['action' => 'edit', $location->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Location'), ['action' => 'delete', $location->id], ['confirm' => __('Are you sure you want to delete # {0}?', $location->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Locations'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Location'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Computers'), ['controller' => 'Computers', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Computer'), ['controller' => 'Computers', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Shifts'), ['controller' => 'Shifts', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Shift'), ['controller' => 'Shifts', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
+?> 
+<br>
 <div class="locations view large-9 medium-8 columns content">
     <h3><?= h($location->name) ?></h3>
-    <table class="vertical-table">
+    <br>
+    <table class="table table-hover">
         <tr>
-            <th scope="row"><?= __('Name') ?></th>
-            <td><?= h($location->name) ?></td>
+            <th scope="row" class="table-info"><?= __('Name') ?></th>
+            <td class="table-light"><?= h($location->name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Map') ?></th>
-            <td><?= h($location->map) ?></td>
+            <th scope="row" class="table-info"><?= __('Map') ?></th>
+            <td class="table-light"><?= h($location->map) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($location->id) ?></td>
+            <th scope="row" class="table-info"><?= __('Id') ?></th>
+            <td class="table-light"><?= $this->Number->format($location->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Phone') ?></th>
-            <td><?= $this->Number->format($location->phone) ?></td>
+            <th scope="row" class="table-info"><?= __('Phone') ?></th>
+            <td class="table-light"><?= $this->Number->format($location->phone) ?></td>
         </tr>
     </table>
     <div class="related">
@@ -89,4 +78,6 @@
         </table>
         <?php endif; ?>
     </div>
+    <br><br>
+    <button type="button" class="btn btn-outline-info" onclick="goBack()">Go Back</button>
 </div>

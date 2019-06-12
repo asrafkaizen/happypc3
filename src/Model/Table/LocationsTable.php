@@ -59,13 +59,13 @@ class LocationsTable extends Table
 
         $validator
             ->scalar('name')
-            ->maxLength('name', 50)
+            ->maxLength('name', 100)
             ->requirePresence('name', 'create')
             ->allowEmptyString('name', false);
 
         $validator
             ->scalar('map')
-            ->maxLength('map', 50)
+            ->maxLength('map', 100)
             ->requirePresence('map', 'create')
             ->allowEmptyString('map', false);
 

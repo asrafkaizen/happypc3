@@ -26,60 +26,53 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <!--<?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('style.css') ?>-->
+
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?= $this->Html->css('bootstrap') ?>
+    <?= $this->Html->script('bootstrap.min') ?>
+    <?= $this->Html->script('popper.min') ?>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> 
 
-            <!--BootSTRAP -->
-        <link href="<?php echo $this->request->webroot;?>vendors/bootstrap/dist/css/bootstrap.min.css"
-        rel="stylesheet">
+<script>
+function goBack() {
+  window.history.back()
+}
+</script>
 
-        <!--Font Awesome-->
-        <link href="<?php echo $this->request->webroot;?>vendors/font-awesome/css/font-awesome.min.css"
-        rel="stylesheet">
-
-         <!--NProgress-->
-        <link href="<?php echo $this->request->webroot;?>vendors/nprogress/css/nprogress.css"
-        rel="stylesheet">
-
-        <!--bootstrap-wysiwyg-->
-        <link href="<?php echo $this->request->webroot;?>vendors/google-code-prettify/bin/prettify.min.css"
-        rel="stylesheet">
-
-         <!--Custom styling plus plugins-->
-        <link href="<?php echo $this->request->webroot;?>build/css/custom.min.css"
-        rel="stylesheet">
 </head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">PacTech</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<body class="nav-md">
-    <div class="container body">
-        <div class="main_container">
-            <?php echo $this->element('sidebar'); ?>
-            <?php echo $this->element('top_bar'); ?>
-            <?php echo $this->element('content'); ?>
-            <?php echo $this->element('footer'); ?>
-        </div>
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+  </div>
+</nav>
+<br>
+    <?= $this->Flash->render() ?>
+    <div class="container clearfix">
 
+        <?= $this->fetch('content') ?>
     </div>
 
-    <!-- jQuery -->
-    <script src="<?php echo $this->request->webroot;?>/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="<?php echo $this->request->webroot;?>/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="<?php echo $this->request->webroot;?>/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="<?php echo $this->request->webroot;?>/vendors/nprogress/nprogress.js"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="<?php echo $this->request->webroot;?>/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-    <script src="<?php echo $this->request->webroot;?>/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-    <script src="<?php echo $this->request->webroot;?>/vendors/google-code-prettify/src/prettify.js"></script>
+    
 
-    <!-- Custom Theme Scripts -->
-    <script src="<?php echo $this->request->webroot;?>/build/js/custom.min.js"></script>
+    <footer>
+    </footer>
 </body>
-
 </html>

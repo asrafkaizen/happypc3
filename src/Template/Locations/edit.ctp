@@ -4,32 +4,26 @@
  * @var \App\Model\Entity\Location $location
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $location->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $location->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Locations'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Computers'), ['controller' => 'Computers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Computer'), ['controller' => 'Computers', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Shifts'), ['controller' => 'Shifts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Shift'), ['controller' => 'Shifts', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 <div class="locations form large-9 medium-8 columns content">
     <?= $this->Form->create($location) ?>
     <fieldset>
         <legend><?= __('Edit Location') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('map');
-            echo $this->Form->control('phone');
-        ?>
+        <br>
+        <?=$this->Form->control('name', array('class' => 'form-control')); ?>
+        <br>
+        <?=$this->Form->control('map', array('class' => 'form-control')); ?>
+        <br>
+        <?=$this->Form->control('phone', array('class' => 'form-control')); ?>
+        <br>
+        
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <br>
+    <table>
+    <tr>
+    <td><?= $this->Form->submit('Update', array('class' => 'btn btn-outline-info')); ?><td>
+    <td style="padding-left: 979px;"><button type="button"  class="btn btn-outline-info" onclick="goBack()">Go Back</button></td>
+    </tr>
+    </table>
     <?= $this->Form->end() ?>
 </div>

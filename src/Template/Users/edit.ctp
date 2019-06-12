@@ -4,32 +4,27 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $user->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Shifts'), ['controller' => 'Shifts', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Shift'), ['controller' => 'Shifts', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="users form large-9 medium-8 columns content">
+
+<div >
     <?= $this->Form->create($user) ?>
     <fieldset>
         <legend><?= __('Edit User') ?></legend>
-        <?php
-            echo $this->Form->control('mxid');
-            echo $this->Form->control('name');
-            echo $this->Form->control('email');
-            echo $this->Form->control('password');
-            echo $this->Form->control('phone');
-        ?>
+        <br>
+        <?=$this->Form->control('mxid', array('class' => 'form-control')); ?>
+        <br>
+        <?=$this->Form->control('name', array('class' => 'form-control')); ?>
+        <br>
+        <?=$this->Form->control('email', array('class' => 'form-control')); ?>
+
+
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <br>
+    <table>
+    <tr>
+    <td><?= $this->Form->submit('Update', array('class' => 'btn btn-outline-info')); ?><td>
+    <td style="padding-left: 979px;"><button type="button"  class="btn btn-outline-info" onclick="goBack()">Go Back</button></td>
+    </tr>
+    </table>
+    
     <?= $this->Form->end() ?>
 </div>

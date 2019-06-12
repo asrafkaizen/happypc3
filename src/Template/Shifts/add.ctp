@@ -16,7 +16,7 @@
         <li><?= $this->Html->link(__('New Bill'), ['controller' => 'Bills', 'action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="shifts form large-9 medium-8 columns content">
+<div>
     <?= $this->Form->create($shift) ?>
     <fieldset>
         <legend><?= __('Add Shift') ?></legend>

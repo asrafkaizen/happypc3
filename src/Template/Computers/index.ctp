@@ -4,17 +4,51 @@
  * @var \App\Model\Entity\Computer[]|\Cake\Collection\CollectionInterface $computers
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Computer'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Locations'), ['controller' => 'Locations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Location'), ['controller' => 'Locations', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="computers index large-9 medium-8 columns content">
+<br>
+<div>
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Client location details</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Users</a>
+    <div class="dropdown-menu">
+      <a><?= $this->Html->link(__('List'), ['controller' => 'Users','action' => 'index'], array('class' => 'dropdown-item')); ?></a>
+      <a><?= $this->Html->link(__('New User'), ['controller' => 'Users','action' => 'add'], array('class' => 'dropdown-item')); ?></a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Shifts</a>
+    <div class="dropdown-menu">
+      <a><?= $this->Html->link(__('List'), ['controller' => 'Shifts', 'action' => 'index'], array('class' => 'dropdown-item')); ?></a>
+      <a><?= $this->Html->link(__('Add New'), ['controller' => 'Shifts', 'action' => 'add'], array('class' => 'dropdown-item')); ?></a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Computers</a>
+    <div class="dropdown-menu">
+      <a><?= $this->Html->link(__('List'), ['controller' => 'Computers', 'action' => 'index'], array('class' => 'dropdown-item')); ?></a>
+      <a><?= $this->Html->link(__('Add New'), ['controller' => 'Computers', 'action' => 'add'], array('class' => 'dropdown-item')); ?></a>
+    </div>
+  </li>
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">Clients</a>
+    <div class="dropdown-menu">
+      <a><?= $this->Html->link(__('List'), ['controller' => 'Locations', 'action' => 'index'], array('class' => 'dropdown-item')); ?></a>
+      <a><?= $this->Html->link(__('Add New'), ['controller' => 'Locations', 'action' => 'add'], array('class' => 'dropdown-item')); ?></a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+<br>
+<div>
     <h3><?= __('Computers') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -25,16 +59,16 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($computers as $computer): ?>
-            <tr>
+            <?php foreach ($computers as $computer): ?> 
+            <tr class="table-light">
                 <td><?= $this->Number->format($computer->id) ?></td>
                 <td><?= $computer->has('location') ? $this->Html->link($computer->location->name, ['controller' => 'Locations', 'action' => 'view', $computer->location->id]) : '' ?></td>
                 <td><?= h($computer->model) ?></td>
                 <td><?= h($computer->cond) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $computer->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $computer->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $computer->id], ['confirm' => __('Are you sure you want to delete # {0}?', $computer->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $computer->id], array('class' => 'btn btn-info')); ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $computer->id], array('class' => 'btn btn-warning')); ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $computer->id], array('class' => 'btn btn-danger'), ['confirm' => __('Are you sure you want to delete # {0}?', $computer->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
